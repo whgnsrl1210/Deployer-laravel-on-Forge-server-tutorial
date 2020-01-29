@@ -9,14 +9,14 @@
         <div class="form-group {{ $errors->has('title')}} ? 'has-error' : '' ">
           <label for="title">제목</label>
         <input type="text" name="title" id="title" value="{{old('title')}}" class="form-control"/>
-        {!! $errors->first('title', '<span class="form-error">: 값을 입력해주세요</span>')!!}
+        {!! $errors->first('title', '<span class="form-error">제목을 입력해주세요</span>')!!}
         </div>
         
         
         <div class="form-group {{ $errors->has('content')}} ? 'has-error' : '' ">
         <label for="title">본문</label>
         <textarea name="content" id="content" rows="10" class="form-control">{{old('content')}}</textarea>
-        {!! $errors->first('content', '<span class="form-error">: message</span>')!!}
+        {!! $errors->first('content', '<span class="form-error">본문은 최소 10글자 이상 입력해야합니다.</span>')!!}
         </div>
         
       <!--  <div class="form-group {{ $errors->has('files')}} ? 'has-error' : '' ">
