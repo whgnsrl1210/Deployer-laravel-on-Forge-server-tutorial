@@ -39,9 +39,9 @@ class PasswordsController extends Controller
             );
 
         });
-        flash('비밀번호를 바꾸는 방법을 담은 이메일을 발송했습니다. 메일 박스를 확인해 주세요.');
         
-        return redirect('/');
+        
+        return redirect('/')->with('flash_message', '비밀번호를 바꾸는 방법을 담은 이메일을 발송했습니다. 메일 박스를 확인해 주세요.');
     }
 
     public function getReset($token = null)
@@ -73,7 +73,7 @@ class PasswordsController extends Controller
 
         \DB::table('password_resets')->whereToken($token)->delete();
         
-        flash('비밀번호를 바꾸었습니다. 새로운 비밀번호로 로그인 하세요.');
-        return redirect('home');
+        
+        return redirect('home')->with('flash_message', '비밀번호를 바꾸었습니다. 새로운 비밀번호로 로그인 하세요.');
     }
 }
